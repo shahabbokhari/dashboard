@@ -1,65 +1,137 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Getting JSON With JQuery</title>
-    <style>
-	body { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666;}
-	p { margin: 8px; font-size:16px; }
-  .selected { color:blue; }
-  .highlight { background:yellow; }
-
-	</style>
-   <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript"> 
 	//$.getJSON( url, [data], [callback] )
-	
 	var url = 'json/result.json';
      $(document).ready(function() {
 	
          $.getJSON(url, function(data) {
             $.each(data.video, function(index, video) {
-			  $('#stage').append('<p> ID: ' + video.id + '</p>');
-			  $('#stage').append('<p> Name: ' + video.name + '</p>');
-			  $('#stage').append('<p> URL: ' + video.url + '</p>');
+			var row = $("<tr></tr>");					
+			  $('#userDataGrid').append('<td> ID: ' + video.id + '</td>');
+			  $('#userDataGrid').append('<td> Name: ' + video.name + '</td>');
+			  $('#userDataGrid').append('<td> URL: ' + video.url + '</td>');
   
 				  $.each(video.author.data, function(index, author) {
-					  $('#stage').append('<p> Author: ' + author.name_author + '</p>');
+					  $('#userDataGrid').append('<td> Author: ' + author.name_author + '</td>');
 				  });
 				  
-				  $.each(video.comments.data, function(index, comments) {
-					  $('#stage').append('<p> Comments: ' + comments.message + '</p>');
-					  $('#stage').append('<p> Created Time: ' + comments.created_time + '</p>');
+				  /*$.each(video.comments.data, function(index, comments) {
+					  $('#userDataGrid').append('<td> Comments: ' + comments.message + '</td>');
+					  $('#userDataGrid').append('<td> Created Time: ' + comments.created_time + '</td>');
 				  });
 				  
 				  var video = data.video[n];
-$('#stage').append('<p> Name: ' + video.name + '</p>');
-$('#stage').append('<p> URL: ' + video.url + '</p>');
+					$('#userDataGrid').append('<td> Name: ' + video.name + '</td>');
+					$('#userDataGrid').append('<td> URL: ' + video.url + '</td>');*/
 
-  
-		  $('#stage').append('<br/>');
+				$('#userDataGrid').append('<br/>');
 			});
 		});
 
-  $("#stage p").addClass("selected highlight");
-
-
-
-
+  $("#userDataGrid p").addClass("selected highlight");
 
         console.log("========================");
         //console.log(data);
 		console.log("========================");
-
       });
-
+	 
 </script>
+
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Shobi', 3],
+          ['Nido', 1],
+          ['Alhana', 1],
+          ['Rayan', 1]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Who is most intelligent lol',
+                       'width':650,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('userDataPieChart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <link href="css/global.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-   
-   <div id="stage">
-         
-   </div>
-  
+<header id="header">
+      <div id="logo">Logo Goes Here </div>
+      <div class="clear-fix"> </div>
+      This is Header </header>
+<section id="wrapper">
+      <section id="column-a"> This is column a
+    <div class="tile">
+          <header>User Data</header>
+      <div class="tile-body"> tile body
+        <div class="clear-fix"> </div>
+      </div>
+          
+          <div class="clear-fix"> </div>
+        </div>
+    <div class="clear-fix"> </div>
+  </section>
+  <section id="column-b"> this is column b
+    <div class="widget">
+          <header>User Data Grid</header>
+          <div class="widget-body"> tile body
+        <table id="userDataGrid" class="grid">
+              <tbody>
+          </tbody>
+              <thead>
+            <tr>
+                  <th class="sort">ID</th>
+                  <th>Name</th>
+                  <th>URL</th>
+                  <th>Author</th>
+                </tr>
+          </thead>
+              <tbody>
+          </tbody>
+            </table>
+        <div class="clear-fix"> </div>
+      </div>
+          <div class="clear-fix"> </div>
+    </div>
+    <div class="widget">
+          <header>User Data Pie Chart</header>
+          <div class="widget-body"> 
+        <!--Div that will hold the pie chart-->
+        <div id="userDataPieChart"></div>
+        <div class="clear-fix"> </div>
+      </div>
+          <div class="clear-fix"> </div>
+    </div>
+    <div class="clear-fix"> </div>
+  </section>
+      <div class="clear-fix"> </div>
+    </section>
+<footer id="footer"> </footer>
 </body>
 </html>
