@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting JSON With JQuery</title>
+    <style>
+	body { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#666;}
+	p { margin: 8px; font-size:16px; }
+  .selected { color:blue; }
+  .highlight { background:yellow; }
+
+	</style>
+   <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript"> 
+	//$.getJSON( url, [data], [callback] )
+	
+	var url = 'json/result.json';
+     $(document).ready(function() {
+	
+         $.getJSON(url, function(data) {
+            $.each(data.video, function(index, video) {
+			  $('#stage').append('<p> ID: ' + video.id + '</p>');
+			  $('#stage').append('<p> Name: ' + video.name + '</p>');
+			  $('#stage').append('<p> URL: ' + video.url + '</p>');
+  
+				  $.each(video.author.data, function(index, author) {
+					  $('#stage').append('<p> Author: ' + author.name_author + '</p>');
+				  });
+				  
+				  $.each(video.comments.data, function(index, comments) {
+					  $('#stage').append('<p> Comments: ' + comments.message + '</p>');
+					  $('#stage').append('<p> Created Time: ' + comments.created_time + '</p>');
+				  });
+				  
+				  var video = data.video[n];
+$('#stage').append('<p> Name: ' + video.name + '</p>');
+$('#stage').append('<p> URL: ' + video.url + '</p>');
+
+  
+		  $('#stage').append('<br/>');
+			});
+		});
+
+  $("#stage p").addClass("selected highlight");
+
+
+
+
+
+        console.log("========================");
+        //console.log(data);
+		console.log("========================");
+
+      });
+
+</script>
+    </head>
+    <body>
+   
+   <div id="stage">
+         
+   </div>
+  
+</body>
+</html>
