@@ -12,9 +12,9 @@
          $.getJSON(url, function(data) {
             $.each(data.video, function(index, video) {
 			var row = $("<tr></tr>");					
-			  $('#userDataGrid').append('<td> ID: ' + video.id + '</td>');
-			  $('#userDataGrid').append('<td> Name: ' + video.name + '</td>');
-			  $('#userDataGrid').append('<td> URL: ' + video.url + '</td>');
+			  $('#userDataGrid').append('<td>' + video.id + '</td>');
+			  $('#userDataGrid').append('<td>' + video.name + '</td>');
+			  $('#userDataGrid').append('<td>' + video.url + '</td>');
   
 				  $.each(video.author.data, function(index, author) {
 					  $('#userDataGrid').append('<td> Author: ' + author.name_author + '</td>');
