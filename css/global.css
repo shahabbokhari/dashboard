@@ -111,3 +111,31 @@ a:hover {
     float: right;
     margin: 0 0 10px 10px;
 }
+
+/*Table*/
+
+/*Table Grid Styles*/
+.grid {
+width:100%;
+border-collapse:collapse;
+color: #666;
+}
+    .grid tr:nth-of-type(odd) {
+    background:#ddd;
+    }
+    .grid tr{
+    background:#efefef;
+    }
+    
+    
+    .grid th {
+    background:#efefef;
+    color:#333;
+    font-weight:700;
+    }
+    
+    .grid td,.grid th {
+    border:1px solid #ccc;
+    text-align:left;
+    padding:10px;
+    }

@@ -5,40 +5,36 @@
     <title>Getting JSON With JQuery</title>
     <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript"> 
-	//$.getJSON( url, [data], [callback] )
-	var url = 'json/result.json';
-     $(document).ready(function() {
-	
-         $.getJSON(url, function(data) {
-            $.each(data.video, function(index, video) {
-			var row = $("<tr></tr>");					
-			  $('#userDataGrid').append('<td>' + video.id + '</td>');
-			  $('#userDataGrid').append('<td>' + video.name + '</td>');
-			  $('#userDataGrid').append('<td>' + video.url + '</td>');
-  
-				  $.each(video.author.data, function(index, author) {
-					  $('#userDataGrid').append('<td> Author: ' + author.name_author + '</td>');
-				  });
-				  
-				  /*$.each(video.comments.data, function(index, comments) {
-					  $('#userDataGrid').append('<td> Comments: ' + comments.message + '</td>');
-					  $('#userDataGrid').append('<td> Created Time: ' + comments.created_time + '</td>');
-				  });
-				  
-				  var video = data.video[n];
-					$('#userDataGrid').append('<td> Name: ' + video.name + '</td>');
-					$('#userDataGrid').append('<td> URL: ' + video.url + '</td>');*/
+		//$.getJSON( url, [data], [callback] )
+		/*$.each(video.comments.data, function(index, comments) {
+		 $('#userDataGrid').append('<td> Comments: ' + comments.message + '</td>');
+		 $('#userDataGrid').append('<td> Created Time: ' + comments.created_time + '</td>');
+		 });
+		 
+		 var video = data.video[n];
+		$('#userDataGrid').append('<td> Name: ' + video.name + '</td>');
+		$('#userDataGrid').append('<td> URL: ' + video.url + '</td>');*/
+		
+		var url ='json/result.json';
+		$(document).ready(function() 
+		{
+			$.getJSON(url, function(data) 
+			{
 
-				$('#userDataGrid').append('<br/>');
+				$.each(data.video, function(index, video) 
+				{
+
+					$('#userDataGrid').append('<td>' +video.id +'</td>');
+					$('#userDataGrid').append('<td>' +video.name +'</td>');
+					$('#userDataGrid').append('<td>' +video.url +'</td>');
+          $.each(video.author.data, function(index, author) {
+            $('#userDataGrid').append('<td>' + author.name_author + '</td>');
+          });
+          $('#userDataGrid > td').wrapAll('<tr></tr>')
+
+				});
 			});
 		});
-
-  $("#userDataGrid p").addClass("selected highlight");
-
-        console.log("========================");
-        //console.log(data);
-		console.log("========================");
-      });
 	 
 </script>
 
@@ -84,42 +80,32 @@
     <body>
 <header id="header">
       <div id="logo"></div>
-      <div class="clear-fix"> </div>
     </header>
 <section id="wrapper">
-<div id="gridHeader" class="tile">
-          <header>
-        <h2>Search Your Twitter Stats Test</h2>
-      </header>
-          <div class="tile-body"> 
-      
-            <label for="textfield"></label>
-            <input name="textfield" type="text" id="textfield" value="EXAMPLES: sea, #ff">
-            <input type="submit" name="button" id="button" value="Analysis">
-<div class="clear-fix"> </div>
-    </div>
-          <div class="clear-fix"> </div>
+      <div id="gridHeader" class="tile">
+    <header>
+          <h2>Search Your Twitter Stats Test</h2>
+        </header>
+    <div class="tile-body">
+          <label for="textfield"></label>
+          <input name="textfield" type="text" id="textfield" value="EXAMPLES: sea, #ff">
+          <input type="submit" name="button" id="button" value="Analysis">
+        </div>
   </div>
       <section id="column-a">
     <div class="tile">
           <header>
         <h2>User Data</h2>
       </header>
-          <div class="tile-body"> 
-          tile body
-        <div class="clear-fix"> </div>
-      </div>
-          <div class="clear-fix"> </div>
+          <div class="tile-body"> </div>
         </div>
-    <div class="clear-fix"> </div>
   </section>
       <section id="column-b">
-      
     <div class="widget">
           <header>
         <h2>User Data Grid</h2>
       </header>
-          <div class="widget-body"> tile body
+          <div class="widget-body"> 
         <table id="userDataGrid" class="grid">
               <tbody>
           </tbody>
@@ -134,9 +120,7 @@
               <tbody>
           </tbody>
             </table>
-        <div class="clear-fix"> </div>
       </div>
-          <div class="clear-fix"> </div>
         </div>
     <div class="widget">
           <header>
@@ -145,13 +129,9 @@
           <div class="widget-body"> 
         <!--Div that will hold the pie chart-->
         <div id="userDataPieChart"></div>
-        <div class="clear-fix"> </div>
       </div>
-          <div class="clear-fix"> </div>
         </div>
-    <div class="clear-fix"> </div>
   </section>
-      <div class="clear-fix"> </div>
     </section>
 <footer id="footer"> </footer>
 </body>
