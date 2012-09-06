@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'PTSansRegular';
+    src: url('../fonts/pt-sans/PTS55F-webfont.eot');
+    src: url('../fonts/pt-sans/PTS55F-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/pt-sans/PTS55F-webfont.woff') format('woff'), url('../fonts/pt-sans/PTS55F-webfont.ttf') format('truetype'), url('../fonts/pt-sans/PTS55F-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: PTSansRegular;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    line-height: 1;
+	color:#fff;
+	background-image:url(../images/bg.gif);
+	background-repeat:repeat;
+}
+
+a {
+    color: #3EB6CC;
+}
+a:hover {
+    color: #61cee2;
+}
+#header {
+    margin-bottom: 20px;
+    width: 100%;
+}
+#wrapper {
+    width: 1024px;
+	margin:0 auto;
+}
+#footer {
+    width: 100%;
+}
+#column-a {
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+}
+#column-b {
+    float: left;
+    width: 804px;
+}
+
+#logo {
+    float: left;
+}
+.widget {
+    background:#4b4b4b;
+	border: 1px solid #676767;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #CCCCCC;
+    margin: 0 0 20px 0
+}
+.widget header {
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+.widget .widget-body {
+    padding: 10px;
+    position: relative;
+}
+.widget h2 {
+    color: #999;
+    font-weight: bold;
+    line-height: 32px;
+    margin: 0 10px 0 0;
+    text-shadow: 1px 1px 0 #000;
+}
+.tile {
+    background:#4b4b4b;
+	border: 1px solid #676767;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #CCCCCC;
+    margin: 0 0 20px 0
+}
+.tile header {
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+}
+.tile .tile-body {
+    padding: 10px;
+    position: relative;
+}
+.tile h2 {
+    color: #999;
+    font-weight: bold;
+    line-height: 32px;
+    margin: 0 10px 0 0;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.clear-fix {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+.float-left {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.float-right {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+
+/*Table*/
+
+/*Table Grid Styles*/
+.grid {
+width:100%;
+border-collapse:collapse;
+color: #666;
+}
+    .grid tr:nth-of-type(odd) {
+    background:#ddd;
+    }
+    .grid tr{
+    background:#efefef;
+    }
+    
+    
+    .grid th {
+    background:#efefef;
+    color:#333;
+    font-weight:700;
+    }
+    
+    .grid td,.grid th {
+    border:1px solid #ccc;
+    text-align:left;
+    padding:10px;
+    }
